@@ -153,6 +153,27 @@
         padding: 30px;
       }
     }
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;              /* khoảng cách giữa tên và icon */
+}
+
+.card-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #333;
+  white-space: nowrap;    /* KHÔNG xuống hàng */
+  overflow: hidden;
+  text-overflow: ellipsis;/* tên dài thì ... cho gọn */
+}
+
+.card-icon {
+  position: static;       /* bỏ absolute */
+  font-size: 1.6rem;
+  color: #007bff;
+  flex-shrink: 0;         /* icon không bị ép nhỏ */
+}
 
   </style>
   <div id="notification-bar" style="
@@ -217,87 +238,90 @@
     </div>
   </div>
 
-  <script>
-    const apiUrl = 'https://api.github.com/repos/HoangQuocKhanh0504/Animation/contents/';
-    const searchBar = document.getElementById('search-bar');
-    const directoryList = document.getElementById('directory-list');
-    let data;
+<script>
+  const { hostname, pathname } = window.location;
 
-    // Fetch the repository contents and populate the card list
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(fetchedData => {
-        data = fetchedData;
-        renderDirectoryList(data);
+// lấy username
+const username = hostname.split('.')[0];
 
-        // Search functionality
-        searchBar.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase();
-          const filteredData = data.filter(item => item.name.toLowerCase().includes(query));
-          renderDirectoryList(filteredData);
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        directoryList.innerHTML = '<p>Không thể tải danh sách thư mục.</p>';
+// lấy repo name
+const repo = pathname.split('/')[1];
+
+const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/`;
+
+  const searchBar = document.getElementById('search-bar');
+  const directoryList = document.getElementById('directory-list');
+  let data = [];
+
+  fetch(apiUrl)
+    .then(res => res.json())
+    .then(fetchedData => {
+      data = fetchedData.filter(item => item.type === 'dir');
+      renderDirectoryList(data);
+
+      searchBar.addEventListener('input', e => {
+        const q = e.target.value.toLowerCase();
+        renderDirectoryList(
+          data.filter(item => item.name.toLowerCase().includes(q))
+        );
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      directoryList.innerHTML = '<p>Không thể tải danh sách thư mục.</p>';
+    });
+
+  function renderDirectoryList(items) {
+    directoryList.innerHTML = '';
+
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const title = document.createElement('div');
+      title.className = 'card-title';
+      title.textContent = item.name;
+
+      const description = document.createElement('div');
+      description.className = 'card-description';
+      description.textContent = 'Nhấp card để xem Pages – Nhấp icon để mở repo';
+
+      const icon = document.createElement('span');
+      icon.className = 'card-icon';
+      icon.innerHTML = '<i class="fas fa-folder"></i>';
+
+      // 👉 CLICK ICON → repo GitHub thư mục (GIỮ NGUYÊN VỊ TRÍ)
+      icon.addEventListener('click', e => {
+        e.stopPropagation(); // không kích hoạt click card
+        window.open(item.html_url, '_blank');
       });
 
-    // Render the directory list to the page
-    function renderDirectoryList(items) {
-      directoryList.innerHTML = '';
-      items.forEach(item => {
-        if (item.type === 'dir') {
-          const card = document.createElement('div');
-          card.classList.add('card');
+      const downloadBtn = document.createElement('button');
+      downloadBtn.className = 'download-btn';
+      downloadBtn.textContent = 'Tải về RAR';
 
-          const title = document.createElement('div');
-          title.classList.add('card-title');
-          title.textContent = item.name;
-
-          const description = document.createElement('div');
-          description.classList.add('card-description');
-          description.textContent = 'Nhấp vào card để mở thư mục và xem chi tiết.';
-
-          const link = document.createElement('a');
-          link.href = `https://hoangquockhanh0504.github.io/Animation/${item.name}/`;
-          link.classList.add('card-link');
-          link.target = '_blank';
-          link.textContent = 'Xem Thư Mục';
-
-          const icon = document.createElement('span');
-          icon.classList.add('card-icon');
-          icon.innerHTML = '<i class="fas fa-folder"></i>';
-
-          // Button to download the specific folder as RAR file
-          const downloadBtn = document.createElement('button');
-          downloadBtn.classList.add('download-btn');
-          downloadBtn.textContent = 'Tải về RAR';
-          downloadBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Ngừng lan tỏa sự kiện bấm vào card
-            
-            // Tạo URL tải về file .rar với tên thư mục/tên thư mục.rar
-            const rarUrl = `https://hoangquockhanh0504.github.io/Animation/${item.name}/${item.name}.rar`;  // URL tải file .rar
-
-            // Mở URL tải về trong cửa sổ mới
-            window.open(rarUrl, '_blank');
-          });
-
-          // Khi bấm vào card, sẽ mở link đến thư mục đó trên GitHub
-          card.addEventListener('click', () => {
-            window.open(`https://hoangquockhanh0504.github.io/Animation/${item.name}`, '_blank');
-          });
-
-          card.appendChild(title);
-          card.appendChild(description);
-          card.appendChild(link);
-          card.appendChild(icon);
-          card.appendChild(downloadBtn);
-          directoryList.appendChild(card);
-        }
+      downloadBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        const rarUrl = `https://hoangquockhanh0504.github.io/Animation/${item.name}/${item.name}.rar`;
+        window.open(rarUrl, '_blank');
       });
-    }
 
-  </script>
+      // 👉 CLICK CARD → GitHub Pages
+      card.addEventListener('click', () => {
+        window.open(
+          `https://hoangquockhanh0504.github.io/Animation/${item.name}`,
+          '_blank'
+        );
+      });
+
+      card.appendChild(title);
+      card.appendChild(description);
+      card.appendChild(icon);
+      card.appendChild(downloadBtn);
+      directoryList.appendChild(card);
+    });
+  }
+</script>
 
 </body>
 </html>
