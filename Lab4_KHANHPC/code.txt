@@ -1,0 +1,20 @@
+:: Tạo thư mục gốc
+mkdir Lab4_Libraries
+
+:: Di chuyển vào thư mục vừa tạo
+cd Lab4_Libraries
+
+:: Tạo file index.html
+type nul > index.html
+
+:: Tạo thư mục assets và các thư mục con
+mkdir assets
+mkdir assets\css
+mkdir assets\js
+mkdir assets\libs
+
+:: Tạo file styles.css trong thư mục css
+type nul > assets\css\styles.css
+
+:: Tạo file app.js trong thư mục js
+type nul > assets\js\app.js
