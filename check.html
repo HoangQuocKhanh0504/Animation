@@ -1802,7 +1802,7 @@
             </div>
             <div class="card-actions">
               <button class="btn-portfolio primary view-page" data-name="${item.name}">
-                <i class="fas fa-external-link-alt"></i> Xem trên GitHub
+                <i class="fas fa-external-link-alt"></i> Xem demo
               </button>
               <button class="btn-portfolio secondary view-repo" data-url="${item.html_url}">
                 <i class="fab fa-github"></i> Mở Repository
@@ -1820,7 +1820,7 @@
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
           const name = btn.getAttribute('data-name');
-          window.open(`https://github.com/${githubData.username}/${githubData.repo}/tree/main/${name}`, '_blank');
+          window.open(`https://${githubData.username}.github.io/${githubData.repo}/${name}`, '_blank');
           
           // Simulate view increase
           const item = directories.find(d => d.name === name);
