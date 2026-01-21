@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax - Trang web giới thiệu phim</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/GD.png" type="image/png">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>CineMax</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+                <li><a href="#movies" class="nav-link">Phim mới</a></li>
+                <li><a href="#trending" class="nav-link">Xu hướng</a></li>
+                <li><a href="#coming-soon" class="nav-link">Sắp chiếu</a></li>
+                <li><a href="#about" class="nav-link">Về chúng tôi</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="mode-toggle" id="modeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Chế độ tối</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="marquee-container">
+            <div class="marquee">
+                <span>🎬 KHUYẾN MÃI ĐẶC BIỆT: Giảm 30% vé thứ 3 khi mua combo gia đình • COMBO BẮP NƯỚC: Chỉ 79K cho 1 bắp lớn + 2 nước • TUẦN LỄ PHIM HÀNH ĐỘNG: Mua 2 vé tặng 1 poster độc quyền • 🎬</span>
+                <span>🎬 KHUYẾN MÃI ĐẶC BIỆT: Giảm 30% vé thứ 3 khi mua combo gia đình • COMBO BẮP NƯỚC: Chỉ 79K cho 1 bắp lớn + 2 nước • TUẦN LỄ PHIM HÀNH ĐỘNG: Mua 2 vé tặng 1 poster độc quyền • 🎬</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Trải nghiệm điện ảnh đẳng cấp</h1>
+                <p class="fade-in-delay">Khám phá thế giới phim ảnh với chất lượng hình ảnh sống động và âm thanh vòm Dolby Atmos. Hơn 1000+ bộ phim đang chờ đón bạn.</p>
+                <div class="hero-buttons">
+                    <a href="#movies" class="btn-primary pulse">Xem phim ngay</a>
+                    <a href="#coming-soon" class="btn-secondary">Phim sắp chiếu</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>2500+</h3>
+                    <p>Giờ phim</p>
+                </div>
+                <div class="stat">
+                    <h3>120+</h3>
+                    <p>Rạp chiếu</p>
+                </div>
+                <div class="stat">
+                    <h3>1M+</h3>
+                    <p>Khách hàng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section class="movies-section" id="movies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Phim đang chiếu</h2>
+                <p>Những bộ phim hot nhất đang được công chiếu tại các rạp</p>
+            </div>
+            <div class="movies-grid">
+                <div class="movie-card scroll-reveal">
+                    <div class="movie-poster">
+                        <img src="assets/images/movie1.jpg" alt="Avatar: Dòng chảy của nước">
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>8.5/10</span>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Avatar: Dòng chảy của nước</h3>
+                        <p class="movie-genre">Khoa học viễn tưởng, Hành động</p>
+                        <p class="movie-desc">Jake Sully và gia đình thực hiện cuộc phiêu lưu mới trên hành tinh Pandora, khám phá thế giới đại dương huyền bí.</p>
+                        <div class="movie-details">
+                            <span><i class="far fa-clock"></i> 192 phút</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                        </div>
+                        <button class="btn-watch pulse">
+                            <i class="fas fa-play-circle"></i>
+                            Xem trailer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card scroll-reveal">
+                    <div class="movie-poster">
+                        <img src="assets/images/movie2.jpg" alt="Oppenheimer">
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>8.3/10</span>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Oppenheimer</h3>
+                        <p class="movie-genre">Tiểu sử, Lịch sử</p>
+                        <p class="movie-desc">Câu chuyện về J. Robert Oppenheimer, cha đẻ của bom nguyên tử và những hệ lụy đạo đức từ phát minh của ông.</p>
+                        <div class="movie-details">
+                            <span><i class="far fa-clock"></i> 180 phút</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                        </div>
+                        <button class="btn-watch pulse">
+                            <i class="fas fa-play-circle"></i>
+                            Xem trailer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card scroll-reveal">
+                    <div class="movie-poster">
+                        <img src="assets/images/movie3.jpg" alt="Spider-Man: Across the Spider-Verse">
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>9.0/10</span>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Spider-Man: Across the Spider-Verse</h3>
+                        <p class="movie-genre">Hoạt hình, Siêu anh hùng</p>
+                        <p class="movie-desc">Miles Morales phiêu lưu qua đa vũ trụ, gặp gỡ nhiều Spider-Man khác và đối mặt với kẻ thù mới đe dọa mọi thực tại.</p>
+                        <div class="movie-details">
+                            <span><i class="far fa-clock"></i> 140 phút</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                        </div>
+                        <button class="btn-watch pulse">
+                            <i class="fas fa-play-circle"></i>
+                            Xem trailer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card scroll-reveal">
+                    <div class="movie-poster">
+                        <img src="assets/images/movie4.jpg" alt="The Batman">
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>7.8/10</span>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>The Batman</h3>
+                        <p class="movie-genre">Hành động, Tội phạm</p>
+                        <p class="movie-desc">Bruce Wayne năm thứ hai trong vai trò Người Dơi đối mặt với Riddler, kẻ săn lùng giới tinh hoa tham nhũng của Gotham.</p>
+                        <div class="movie-details">
+                            <span><i class="far fa-clock"></i> 176 phút</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                        </div>
+                        <button class="btn-watch pulse">
+                            <i class="fas fa-play-circle"></i>
+                            Xem trailer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending-section" id="trending">
+        <div class="container">
+            <div class="section-header">
+                <h2>Phim xu hướng</h2>
+                <p>Những bộ phim được yêu thích nhất tuần qua</p>
+            </div>
+            <div class="trending-grid">
+                <div class="trending-card scroll-reveal">
+                    <div class="trending-poster">
+                        <img src="assets/images/movie5.jpg" alt="Everything Everywhere All at Once">
+                    </div>
+                    <div class="trending-info">
+                        <h3>Everything Everywhere All at Once</h3>
+                        <div class="trending-rank">
+                            <span class="rank-badge">#1</span>
+                            <div class="trending-rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.7/10</span>
+                            </div>
+                        </div>
+                        <p>Một phụ nữ Trung Quốc nhập cư phải cứu thế giới bằng cách kết nối với các phiên bản của chính mình trong đa vũ trụ.</p>
+                        <div class="trending-tags">
+                            <span class="tag">Hài</span>
+                            <span class="tag">Kỳ ảo</span>
+                            <span class="tag">Gia đình</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trending-card scroll-reveal">
+                    <div class="trending-poster">
+                        <img src="assets/images/movie6.jpg" alt="Top Gun: Maverick">
+                    </div>
+                    <div class="trending-info">
+                        <h3>Top Gun: Maverick</h3>
+                        <div class="trending-rank">
+                            <span class="rank-badge">#2</span>
+                            <div class="trending-rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.2/10</span>
+                            </div>
+                        </div>
+                        <p>Pete "Maverick" Mitchell đào tạo đội phi công ưu tú cho nhiệm vụ cực kỳ nguy hiểm, đồng thời đối mặt với quá khứ của mình.</p>
+                        <div class="trending-tags">
+                            <span class="tag">Hành động</span>
+                            <span class="tag">Phiêu lưu</span>
+                            <span class="tag">Chiến tranh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon-section" id="coming-soon">
+        <div class="container">
+            <div class="section-header">
+                <h2>Phim sắp chiếu</h2>
+                <p>Những tác phẩm điện ảnh đáng chờ đợi trong thời gian tới</p>
+            </div>
+            <div class="coming-soon-list">
+                <div class="coming-soon-item scroll-reveal">
+                    <div class="release-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">THÁNG 6</span>
+                    </div>
+                    <div class="coming-soon-details">
+                        <h3>Dune: Part Two</h3>
+                        <p>Paul Atreides hợp tác với Chani và người Fremen trên hành trình trả thù những kẻ phản bội gia đình anh.</p>
+                    </div>
+                    <button class="btn-notify">Nhận thông báo</button>
+                </div>
+
+                <div class="coming-soon-item scroll-reveal">
+                    <div class="release-date">
+                        <span class="date-day">28</span>
+                        <span class="date-month">THÁNG 6</span>
+                    </div>
+                    <div class="coming-soon-details">
+                        <h3>Mission: Impossible - Dead Reckoning Part Two</h3>
+                        <p>Ethan Hunt và đồng đội tiếp tục nhiệm vụ bất khả thi để ngăn chặn mối đe dọa toàn cầu từ AI thông minh.</p>
+                    </div>
+                    <button class="btn-notify">Nhận thông báo</button>
+                </div>
+
+                <div class="coming-soon-item scroll-reveal">
+                    <div class="release-date">
+                        <span class="date-day">12</span>
+                        <span class="date-month">THÁNG 7</span>
+                    </div>
+                    <div class="coming-soon-details">
+                        <h3>Kraven the Hunter</h3>
+                        <p>Nguồn gốc của thợ săn nguy hiểm nhất thế giới, Kraven, và hành trình trở thành kẻ thù không đội trời chung của Spider-Man.</p>
+                    </div>
+                    <button class="btn-notify">Nhận thông báo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Về CineMax</h2>
+                <p>Hệ thống rạp chiếu phim hiện đại và đẳng cấp</p>
+            </div>
+            <div class="about-content scroll-reveal">
+                <div class="about-text">
+                    <h3>Trải nghiệm điện ảnh tuyệt vời nhất</h3>
+                    <p>CineMax là hệ thống rạp chiếu phim hàng đầu với hơn 120 rạp trên toàn quốc. Chúng tôi cam kết mang đến cho khán giả những trải nghiệm điện ảnh đáng nhớ với công nghệ trình chiếu tiên tiến và dịch vụ khách hàng tận tâm.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-video"></i>
+                            <h4>Hình ảnh 4K Dolby Vision</h4>
+                            <p>Chất lượng hình ảnh sắc nét, sống động như thật</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-volume-up"></i>
+                            <h4>Âm thanh Dolby Atmos</h4>
+                            <p>Hệ thống âm thanh vòm đắm chìm 360 độ</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-couch"></i>
+                            <h4>Ghế ngồi cao cấp</h4>
+                            <p>Ghế da có thể điều chỉnh, tự động sưởi và massage</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rạp chiếu phim CineMax">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-film"></i>
+                    <span>CineMax</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Khám phá</h4>
+                        <a href="#home">Phim đang chiếu</a>
+                        <a href="#coming-soon">Phim sắp chiếu</a>
+                        <a href="#trending">Xu hướng</a>
+                        <a href="#about">Rạp CineMax</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Hỗ trợ</h4>
+                        <a href="#">Câu hỏi thường gặp</a>
+                        <a href="#">Chính sách bảo mật</a>
+                        <a href="#">Điều khoản sử dụng</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/khanhpc548" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@KhanhPC-k8" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CineMax. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Video Popup Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-overlay"></div>
+        <div class="video-modal-content">
+            <button class="video-modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-container">
+                <video id="trailerVideo" controls>
+                    <source src="assets/video/video.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+            </div>
+            <div class="video-info">
+                <h3 id="videoTitle">Trailer phim</h3>
+                <p id="videoDescription">Xem trailer đầy đủ của bộ phim</p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
